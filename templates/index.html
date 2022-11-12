@@ -1,0 +1,87 @@
+<html>
+<head>
+<title>URL TO QR</title>        
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="font-Montserrat">
+    <header>
+        <nav class="bg-sky-600 p-7" >
+            <p class="text-white">Bienvenido a URL TO QR</p>
+        </nav>
+        <h1 class="text-4xl font-bold ml-9 mt-10">Convertir cualquier link a QR</h1>
+        <h2 class="text-2xl mt-2 ml-9 mt-10">Anotando la url o sacando una foto al link</h2>
+    </header>
+    <div class="mt-14 mx-10">
+        <form class="w-full h-auto" action method="post">
+            <div class="md:flex md:items-center m-10" action id="URL-reciver">
+                <div>
+                    <label class="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"        
+                    for="message">
+                        Ingresa el link que deseas convertir a QR
+                    </label>
+                </div>
+                <div class="md:w-2/3">
+                    <textarea id="message" name="message" rows="1" cols="1" class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-6 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"></textarea>
+                </div>
+                <div class="md:w-2/3 ">
+                    <input class="m-10 shadow bg-sky-600 hover:bg-teal-700 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-6 rounded" type="submit" value="Enviar">
+                </div>
+            </div>
+        </form>
+        {% if filename %}
+        <div>
+            <img src="{{ url_for('display_image', filename=filename) }}">
+        </div>
+    {% endif %}
+    </div>
+    <div class="container">
+    <div class="row">
+        <h3 class="text-2xl mt-4 ml-9">Subir la foto del link y pasarlo a QR</h3>
+        <p>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul>
+                {% for message in messages %}
+                <li>{{ message }}</li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+            {% endwith %}
+        </p>
+        {% if filename %}
+            <div>
+                <img src="{{ url_for('display_image', filename=filename) }}">
+            </div>
+        {% endif %}
+        <form method="post" action="/" enctype="multipart/form-data">
+            <dl>
+                <p>
+                    <input type="file" name="file" class="form-control bg-white rounded-xl shadow-lg space-y-2 sm:py-4 sm:flex ml-5 mt-5"autocomplete="off" required>
+                </p>
+            </dl>
+            <p>
+                <input type="submit" value="Aceptar " class="btn btn-info bg-white rounded-xl shadow-lg space-y-2 sm:py-4 sm:flex sm:items-center sm:space-y-0 sm:space-x-6 px-4 py-1 text-m text-purple-600 font-semibold rounded-full border border-purple-200 hover:text-white hover:bg-purple-600 ml-5 mt-5">
+            </p>
+        </form>
+    </div>
+    </div>
+
+    <footer>
+        <div class="py-8 px-8 max-w-sm bg-white rounded-xl shadow-lg space-y-2 sm:py-4 sm:flex sm:items-center sm:space-y-0 sm:space-x-6">
+            <img class="block mx-auto h-24 rounded-full sm:mx-0 sm:shrink-0" src="https://raw.githubusercontent.com/nicolasvargaszz/repo-para-img/main/WhatsApp_Image_2022-06-20_at_6.43.17_PM.jpeg" alt="my face">
+            <div class="text-center space-y-2 sm:text-left">
+                <div class="space-y-0.5">
+                    <p class="text-lg text-black font-semibold">
+                    Nico Vargas
+                    </p>
+                    <p class="text-slate-500 font-medium">
+                    Programmer
+                    </p>
+                </div>
+                <button class="px-4 py-1 text-m text-purple-600 font-semibold rounded-full border border-purple-200 hover:text-white hover:bg-purple-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2">Message</button>
+            </div>
+        </div>
+    </footer>
+</body>
+</html> 
