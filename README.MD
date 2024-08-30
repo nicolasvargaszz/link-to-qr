@@ -1,10 +1,8 @@
-# YOU CAN ADD THE LINK TO YOUR FAVORITE WEB SITE
+# Here is a repo that use Flask, 
 
-## AND THE YOU'LL RECIVE THE QR-CODE TO THAT SITE.
+This just recive a Link or URL, and it convert it into a QR code, just a pretty simple project that i did when i was learning how to use FLASK 
 
-IF YOU LIKE THIS SIMPLE WEBSITE, HIT ME ON TWITTER, I'M CURRENLY WORKING ON SIMILAR PROJECT, TO INCREASE MY DEVELOPER SKILLS.
-
-@nicoelingeniero 
+ 
 
 # Technologies 
 
